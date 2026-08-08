@@ -27,6 +27,9 @@ const links = [
   { label: "Flickr", href: "https://www.flickr.com/photos/gregorinijeronimo" },
 ];
 
+const whatsappHref =
+  "https://wa.me/5491139360510?text=Hola%20TEKAZ%2C%20quiero%20consultar%20por%20un%20proyecto%2C%20turno%20o%20encargo.";
+
 export default function Home() {
   return (
     <main>
@@ -83,6 +86,9 @@ export default function Home() {
           <h2>Seguime y escribime para proyectos, turnos o encargos.</h2>
         </div>
         <div className="contactLinks">
+          <a href={whatsappHref} target="_blank" rel="noreferrer">
+            Escribime por WhatsApp
+          </a>
           {links.map((link) => (
             <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
               {link.label}
