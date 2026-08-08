@@ -1,0 +1,112 @@
+:root {
+  color-scheme: dark;
+  --ink: #f7f0df;
+  --muted: #c8bca1;
+  --bg: #11100e;
+  --panel: rgba(255, 255, 255, 0.08);
+  --line: rgba(255, 255, 255, 0.18);
+  --fire: #ff4d1d;
+  --sun: #f6c343;
+  --aqua: #24d2b5;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255, 77, 29, .24), transparent 34rem),
+    radial-gradient(circle at 80% 15%, rgba(36, 210, 181, .18), transparent 28rem),
+    var(--bg);
+  color: var(--ink);
+}
+a { color: inherit; text-decoration: none; }
+
+main { min-height: 100vh; overflow: hidden; }
+.nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px clamp(20px, 5vw, 72px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(18px);
+  background: rgba(17, 16, 14, .66);
+}
+.brand { font-size: 1.5rem; font-weight: 900; letter-spacing: .16em; }
+.nav div { display: flex; gap: 20px; color: var(--muted); }
+
+.hero, .portfolio, .contact { padding: clamp(56px, 9vw, 120px) clamp(20px, 5vw, 72px); }
+.hero {
+  display: grid;
+  gap: 44px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+  min-height: 82vh;
+  align-items: center;
+}
+.eyebrow { color: var(--aqua); font-size: .85rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { font-size: clamp(3rem, 9vw, 8rem); line-height: .86; letter-spacing: -.07em; margin-bottom: 28px; }
+h2 { font-size: clamp(2rem, 5vw, 4.5rem); line-height: .95; letter-spacing: -.04em; max-width: 980px; }
+.intro { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.55; max-width: 690px; }
+.actions, .contactLinks { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+.actions a, .contactLinks a {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 14px 20px;
+  background: var(--panel);
+  font-weight: 800;
+}
+.actions a:first-child { background: var(--fire); border-color: var(--fire); color: #160703; }
+
+.poster {
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--line);
+  border-radius: 36px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+  transform: rotate(2deg);
+  box-shadow: 0 30px 90px rgba(0,0,0,.35);
+}
+.poster span {
+  align-items: center;
+  display: flex;
+  font-size: clamp(4rem, 12vw, 11rem);
+  font-weight: 1000;
+  justify-content: center;
+  min-height: 120px;
+}
+.poster span:nth-child(1), .poster span:nth-child(5) { background: var(--sun); color: #1b1201; }
+.poster span:nth-child(2) { background: #201b17; color: var(--fire); }
+.poster span:nth-child(3) { background: var(--aqua); color: #021916; }
+.poster span:nth-child(4) { background: var(--fire); color: #210801; }
+.poster span:nth-child(5) { grid-column: span 2; }
+
+.portfolio { background: linear-gradient(180deg, rgba(255,255,255,.04), transparent); }
+.grid { display: grid; gap: 22px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 36px; }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 18px;
+  min-height: 520px;
+}
+.art { border-radius: 20px; height: 260px; margin-bottom: 24px; }
+.art1 { background: repeating-linear-gradient(135deg, #f7f0df 0 8px, #11100e 8px 16px), radial-gradient(circle, var(--fire), transparent); }
+.art2 { background: linear-gradient(135deg, var(--fire), var(--sun) 45%, var(--aqua)); }
+.art3 { background: radial-gradient(circle at 30% 30%, var(--sun), transparent 30%), radial-gradient(circle at 70% 70%, var(--aqua), transparent 28%), #241f1b; }
+.card p { color: var(--sun); font-weight: 900; text-transform: uppercase; letter-spacing: .14em; }
+.card h3 { font-size: 2rem; margin-bottom: 12px; }
+.card span { color: var(--muted); line-height: 1.55; }
+ul { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 28px 0 0; padding: 0; }
+li { border: 1px solid var(--line); border-radius: 999px; color: var(--muted); padding: 8px 12px; }
+.contact { align-items: center; display: flex; gap: 32px; justify-content: space-between; }
+
+@media (max-width: 900px) {
+  .hero, .grid, .contact { grid-template-columns: 1fr; }
+  .hero, .contact { display: block; }
+  .poster { margin-top: 40px; }
+}
