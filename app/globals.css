@@ -94,10 +94,57 @@ h2 { font-size: clamp(2rem, 5vw, 4.5rem); line-height: .95; letter-spacing: -.04
   padding: 18px;
   min-height: 520px;
 }
-.art { border-radius: 20px; height: 260px; margin-bottom: 24px; }
-.art1 { background: repeating-linear-gradient(135deg, #f7f0df 0 8px, #11100e 8px 16px), radial-gradient(circle, var(--fire), transparent); }
-.art2 { background: linear-gradient(135deg, var(--fire), var(--sun) 45%, var(--aqua)); }
-.art3 { background: radial-gradient(circle at 30% 30%, var(--sun), transparent 30%), radial-gradient(circle at 70% 70%, var(--aqua), transparent 28%), #241f1b; }
+.art {
+  border-radius: 20px;
+  height: 300px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  position: relative;
+}
+.art::before, .art::after { content: ""; inset: 0; position: absolute; }
+.mural1 {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(36,210,181,.95) 0 8%, transparent 9%),
+    radial-gradient(circle at 50% 56%, rgba(255,255,255,.9) 0 6%, transparent 7%),
+    linear-gradient(110deg, transparent 0 20%, rgba(25,255,92,.85) 21% 24%, transparent 25% 48%, rgba(25,255,92,.75) 49% 52%, transparent 53%),
+    radial-gradient(circle at 24% 70%, #8a8b39 0 18%, transparent 19%),
+    radial-gradient(circle at 78% 68%, #2b8f7d 0 18%, transparent 19%),
+    #070908;
+}
+.mural1::before {
+  background:
+    repeating-linear-gradient(20deg, transparent 0 28px, rgba(43,255,73,.65) 30px 34px, transparent 36px 62px),
+    radial-gradient(circle at 50% 50%, transparent 0 20%, rgba(22,255,68,.35) 21% 24%, transparent 25%);
+  mix-blend-mode: screen;
+}
+.mural2 {
+  background:
+    radial-gradient(circle at 52% 33%, #0d2637 0 18%, transparent 19%),
+    linear-gradient(90deg, transparent 0 12%, rgba(238,33,93,.7) 13% 16%, transparent 17% 84%, rgba(238,33,93,.55) 85% 88%, transparent 89%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.08) 0 4px, transparent 5px 34px),
+    linear-gradient(160deg, #4c2f73, #202445 52%, #10131c);
+}
+.mural2::before {
+  background:
+    linear-gradient(135deg, transparent 0 26%, rgba(29,202,202,.8) 27% 29%, transparent 30%),
+    repeating-linear-gradient(135deg, transparent 0 32px, rgba(255,255,255,.85) 33px 37px, transparent 38px 72px),
+    radial-gradient(circle at 50% 44%, rgba(91,202,229,.85) 0 5%, transparent 6%);
+  clip-path: polygon(5% 57%, 31% 43%, 47% 60%, 64% 49%, 95% 64%, 100% 100%, 0 100%);
+}
+.mural3 {
+  background:
+    radial-gradient(circle at 24% 26%, #f5efdf 0 5%, transparent 6%),
+    repeating-radial-gradient(circle at 78% 78%, #f5efdf 0 8px, #10100f 9px 17px),
+    repeating-linear-gradient(120deg, transparent 0 16px, #f5efdf 17px 24px, transparent 25px 44px),
+    #10100f;
+}
+.mural3::before {
+  background:
+    radial-gradient(ellipse at 26% 24%, transparent 0 14%, #10100f 15% 20%, transparent 21%),
+    radial-gradient(ellipse at 34% 65%, #f5efdf 0 11%, transparent 12%),
+    radial-gradient(ellipse at 66% 38%, #f5efdf 0 9%, transparent 10%),
+    conic-gradient(from 45deg at 65% 38%, transparent 0 10%, #10100f 10% 14%, transparent 14% 25%);
+}
 .card p { color: var(--sun); font-weight: 900; text-transform: uppercase; letter-spacing: .14em; }
 .card h3 { font-size: 2rem; margin-bottom: 12px; }
 .card span { color: var(--muted); line-height: 1.55; }

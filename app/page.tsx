@@ -1,24 +1,27 @@
-const sections = [
+const murals = [
   {
-    title: "Tattoos",
-    kicker: "Piel como soporte",
+    title: "Mural orgánico verde",
+    kicker: "Fachada urbana",
     description:
-      "Diseños con línea gráfica, símbolos propios y composición pensada para acompañar el cuerpo.",
-    tags: ["flash", "custom", "blackwork"],
+      "Composición de gran formato con energía vegetal, personajes centrales y detalles mecánicos sobre fondo oscuro.",
+    tags: ["mural", "color", "fachada"],
+    className: "mural1",
   },
   {
-    title: "Murales",
-    kicker: "Escala pública",
+    title: "Mural sci-fi azul",
+    kicker: "Pared industrial",
     description:
-      "Intervenciones de gran formato con energía urbana, naturaleza y color para espacios vivos.",
-    tags: ["pared", "comunidad", "color"],
+      "Intervención con personaje robótico, capas de graffiti y contraste azul, violeta y magenta.",
+    tags: ["mural", "graffiti", "sci-fi"],
+    className: "mural2",
   },
   {
-    title: "Ilustraciones / obras",
-    kicker: "Laboratorio gráfico",
+    title: "Mural ornamental blanco y negro",
+    kicker: "Interior gráfico",
     description:
-      "Piezas originales, dibujos y exploraciones visuales entre lo orgánico, lo callejero y lo simbólico.",
-    tags: ["papel", "digital", "originales"],
+      "Patrones florales y formas simbólicas en alto contraste para una pared envolvente y decorativa.",
+    tags: ["mural", "blackwork", "ornamental"],
+    className: "mural3",
   },
 ];
 
@@ -63,17 +66,17 @@ export default function Home() {
       </section>
 
       <section id="portfolio" className="portfolio">
-        <p className="eyebrow">Tres líneas de trabajo</p>
-        <h2>Tattoos, murales e ilustraciones / obras</h2>
+        <p className="eyebrow">Murales destacados</p>
+        <h2>Tres intervenciones murales de TEKAZ</h2>
         <div className="grid">
-          {sections.map((section, index) => (
-            <article className="card" key={section.title}>
-              <div className={`art art${index + 1}`} />
-              <p>{section.kicker}</p>
-              <h3>{section.title}</h3>
-              <span>{section.description}</span>
+          {murals.map((mural) => (
+            <article className="card" key={mural.title}>
+              <div className={`art ${mural.className}`} aria-label={mural.title} />
+              <p>{mural.kicker}</p>
+              <h3>{mural.title}</h3>
+              <span>{mural.description}</span>
               <ul>
-                {section.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                {mural.tags.map((tag) => <li key={tag}>{tag}</li>)}
               </ul>
             </article>
           ))}
